@@ -11,10 +11,12 @@
       <th style="width:20px;">Formal?</th>
     </tr>
     <% @users.each do |user| %>
-      <% user.skills.each do |skill| %> 
+      <% user.proficiencies.each do |proficiency| %>
         <tr>
-          <td><%= user.name %></td>
-          <td><%= skill.name %> (<%= skill.context %>)</td>
+          <td><%= proficiency.user.name %></td>
+          <td><%= proficiency.skill.name %> (<%= proficiency.skill.context %>)</td>
+          <td><%= proficiency.experience %></td>
+          <td><%= proficiency.formal %></td>
         </tr>
       <% end %>
     <% end %>

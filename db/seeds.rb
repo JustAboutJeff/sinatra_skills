@@ -2,7 +2,7 @@ require 'faker'
 
 # create a few users
 User.create :name => 'Dev Bootcamp Student', :email => 'me@example.com', :password => 'password'
-9.times do
+(3..9).to_a.sample.times do
   User.create :name => Faker::Name.name, :email => Faker::Internet.email, :password => 'password'
 end
 
@@ -22,6 +22,6 @@ end
 
 User.all.each do |user|
   (1..3).to_a.sample.times do
-    user.skills << Skill.all.sample
+    user.proficiencies.create(:skill => Skill.all.sample, :formal => false, :experience => 0)
   end
 end
